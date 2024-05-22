@@ -1,0 +1,27 @@
+.nav{
+    background-color: #FFE771;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 2%;
+    position: fixed;
+    width: 100%;
+}
+
+
+.footer{
+    background-color: #3773a3;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    .footer, .nav{
+        font-size: 12px;
+    }
+}

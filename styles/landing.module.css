@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.box{
+    background-color: rgb(205, 161, 244);
+    padding: 2%;
+    border-radius: 5% 0% 0% 5%;
+    box-shadow: 5px 5px 5px rgb(96, 96, 96);
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Image */
+.imageBox{
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.image{
+    border-radius: 50%;
+    background-color: red;
+    padding: 5%;
+    width: 200px;
+    height: 200px;
+    border: 5px solid white;
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.imageBox:hover .overlay{
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.text {
+    white-space: nowrap; 
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+/* Button */
+.excel, .bi, .looker, .python, .website{
+    background-color: white;
+    padding: 5%;
+    margin: 5px 0 5px 0;
+    font-weight: bold;
+    border-radius: 2%;
+    text-align: center;
+}
+
+.aboutBtn{
+    background: linear-gradient(to top, yellow, red);
+    color: white;
+    padding: 5%;
+    margin: 5px 0 5px 0;
+    font-weight: bold;
+    border-radius: 2%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.excel:hover{
+    background-color: #107C41;
+    color: white;
+    cursor: pointer;
+}
+.bi:hover{
+    background: linear-gradient(to bottom right, rgb(255, 208, 0), white);
+    cursor: pointer;
+}
+
+.looker:hover{
+    background: linear-gradient(to bottom right, blue, white);
+    color: white;
+    cursor: pointer;
+}
+
+.python:hover{
+    background: linear-gradient(to right, #3773a3 20%, #FFE771);
+    color: white;
+    cursor: pointer;
+}
+
+.website:hover{
+    background: linear-gradient(to bottom right, teal , white);
+    color: white;
+    cursor: pointer;
+}
+
+/* About Me */
+.aboutMeBox{
+    background-color: white;
+    box-shadow: 5px 5px 5px rgb(96, 96, 96);
+    width: 35%;
+    height: 545px;
+    padding: 2%;
+    border-radius: 0% 5% 5% 0%;
+}
+
+.aboutMe{
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.introduce{
+    text-align: justify;
+}
+
+@media screen and (max-width: 600px) {
+    .aboutBtn, .aboutMeBox {
+        display: none;
+        /* text-align: justify; */
+    }
+    .box {
+        border-radius: 5%;
+    }
+}

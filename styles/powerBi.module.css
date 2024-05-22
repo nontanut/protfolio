@@ -1,0 +1,26 @@
+.nav{
+    background-color: rgb(255, 208, 0);
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+
+.footer{
+    background-color: rgb(255, 208, 0);
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .footer, .nav{
+        font-size: 12px;
+    }
+}
