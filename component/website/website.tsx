@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Image,
   Button,
   Link,
@@ -41,6 +40,7 @@ export const Web = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
+
       <Box
         display="flex"
         flexDirection="column"
@@ -57,7 +57,7 @@ export const Web = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
-                mt={50}
+                mt={index === 0 ? 50 : 0}
                 bg="teal"
                 key={index}
               >
@@ -70,12 +70,21 @@ export const Web = () => {
                   }
                   alignItems="center"
                 >
-                  <Image
-                    src={data.image}
-                    minH={["300px", "300px", "500px"]}
+                  <Box
                     w={["100%", "100%", "50%"]}
-                    objectFit="cover"
-                  />
+                    minH={["300px", "300px", "500px"]}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    bg="white"
+                    p={0}
+                  >
+                    <Image
+                      src={data.image}
+                      h="300px"
+                      w={["100%", "70%", "70%"]}
+                    />
+                  </Box>
                   <Box
                     w={["100%", "100%", "50%"]}
                     minH={["300px", "300px", "500px"]}

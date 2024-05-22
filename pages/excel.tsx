@@ -14,53 +14,42 @@ import {
   Button,
   Grid,
   GridItem,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure,
+  Link,
+  Box,
 } from "@chakra-ui/react";
 
 const data = [
   {
     image:
-      "https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    title: "Raw Data",
+      "https://cdn.pixabay.com/photo/2017/01/05/11/57/database-1954920_1280.jpg",
+    title: "Data Source",
     content:
-      "This sofa is perfect for modern tropical spaces, baroque inspired spaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
+      "In this step, get data from various places is used in data processing. The data files will be different types. You can press preview. to view a sample file or press the download button to inspect",
     step: "Step 1",
+    link: "https://drive.google.com/drive/u/0/folders/1LWiNXMv23AfLKr0BTdbVQshLQZVkya7l",
   },
   {
+    // image:
+    //   "https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg",
     image:
-      "https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    title: "Cleansing",
+      "https://cdn.pixabay.com/photo/2021/07/12/15/22/light-bulbs-6406640_960_720.jpg",
+    title: "ETL or Cleansing",
     content:
-      "This sofa is perfect for modern tropical spaces, baroque inspired spaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
+      "This step is taking the raw data and using Power Query for ETL or Cleansing Data to keep the data in the most ready-to-use format. before being used to create visualize in the next step",
     step: "Step 2",
+    link: "https://drive.google.com/drive/u/0/folders/1rIW75qO0o-UDkuRWorTCdI873fI6GEqZ",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    title: "Visaul",
+    image: "/excel/Sale_Report.png",
+    title: "Visaulize",
     content:
-      "This sofa is perfect for modern tropical spaces, baroque inspired spaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
+      "This is Power Pivot about Sales Report, Sales Performance and Export Transport Logistics, You can preview for example file and download the file to check more performance but you should change path of file reference to your files location.",
     step: "Step 3",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    title: "Other",
-    content:
-      "This sofa is perfect for modern tropical spaces, baroque inspired spaces, earthy toned spaces and for people who love a chic design with a sprinkle of vintage design.",
-    step: "Step 4",
+    link: "https://icins-my.sharepoint.com/:x:/g/personal/nontanut_b_icare-insurance_com1/EVDi4oKckQtBti8El69l5WMB1qbsc2nsJm466jXN_Xaqjw?e=Aygp8A",
   },
 ];
 
 const Excel = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <div className={styles.nav}>
@@ -68,64 +57,44 @@ const Excel = () => {
       </div>
 
       <Grid
-        templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(4, 1fr)"]}
+        templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
         gap={2}
         mx={2}
         mb={20}
         pt={100}
       >
-        {data.map((card) => {
+        {data.map((items, index) => {
           return (
-            <GridItem justifyContent="center" display="flex">
+            <GridItem justifyContent="center" display="flex" key={index}>
               <Card maxW="sm">
                 <CardBody>
-                  <Image
-                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    alt="Green double couch with wooden legs"
-                    borderRadius="lg"
-                  />
+                  <Box display="flex" justifyContent="center">
+                    <Image
+                      src={items.image}
+                      alt="Example Image For Excel file"
+                      h="200px"
+                    />
+                  </Box>
                   <Stack mt="6" spacing="3">
-                    <Heading size="md">{card.title}</Heading>
-                    <Text>{card.content}</Text>
+                    <Heading size="md">{items.title}</Heading>
+                    <Text>{items.content}</Text>
                     <Text color="green.600" fontSize="2xl">
-                      {card.step}
+                      {items.step}
                     </Text>
                   </Stack>
                 </CardBody>
                 <Divider />
                 <CardFooter>
                   <ButtonGroup spacing="2">
-                    <Button
-                      variant="solid"
-                      colorScheme="green"
-                      onClick={onOpen}
-                    >
-                      Preview
-                    </Button>
-                    {/* Preview Modal */}
-                    <Modal isOpen={isOpen} onClose={onClose} size="6xl">
-                      <ModalOverlay />
-                      <ModalContent
-                        justifyContent="center"
-                        display="flex"
-                        textAlign="center"
-                        alignItems="center"
-                        alignContent="center"
+                    <Button variant="solid" colorScheme="green">
+                      <Link
+                        href={items.link}
+                        isExternal
+                        _hover={{ textDecoration: "none" }}
                       >
-                        <ModalHeader>Example Raw Data</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                          <Image src="https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" />
-                        </ModalBody>
-
-                        <ModalFooter>
-                          <Button colorScheme="red" mr={3} onClick={onClose}>
-                            Close
-                          </Button>
-                          <Button variant="ghost">Secondary Action</Button>
-                        </ModalFooter>
-                      </ModalContent>
-                    </Modal>
+                        Preview
+                      </Link>
+                    </Button>
 
                     <Button variant="ghost" colorScheme="green">
                       Download
